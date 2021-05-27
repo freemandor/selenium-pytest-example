@@ -24,3 +24,13 @@ def setup(request):
     list_of_files = os.listdir('downloads')
     for file in list_of_files:
         os.remove(os.path.join(DOWNLOAD_PATH, file))
+
+
+@pytest.fixture(scope="class")
+def get_creds(request):
+    creds = {
+        "user": os.environ.get('USER'),
+        "password": os.environ.get('PASSWORD')
+    }
+    request.cls.creds = creds
+    return creds
