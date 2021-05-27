@@ -15,7 +15,7 @@ def setup(request):
     prefs = {'download.default_directory': DOWNLOAD_PATH}
     chrome_options.add_experimental_option('prefs', prefs)
     chrome_options.add_argument("--lang=en-GB")
-    driver: WebDriver = webdriver.Chrome('./drivers/chromedriver.exe', options=chrome_options)
+    driver: WebDriver = webdriver.Chrome('./drivers/chromedriver', options=chrome_options)
     driver.maximize_window()
     request.cls.driver = driver
 
